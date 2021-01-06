@@ -1,0 +1,49 @@
+Q-how to call js function in php code
+ansqwe:
+	 function change(id){
+	        // document.getElementById(id).style.background='green';
+	        alert(id);
+	    }
+	</script>
+	<?php
+	    $con=mysqli_connect('localhost','root');
+	    mysqli_select_db($con,'test');
+	    $sql = "SELECT value FROM temp";
+	    $result = $con->query($sql);
+	    $id=1;
+	    $value=1;
+	    if ($result->num_rows > 0) {
+	        while($row = $result->fetch_assoc()) {
+	            // echo "<br> id: ". $row["id"]. " - username= ". $row["username"]. " password= " . $row["password"] . "<br>";
+	            if($row["value"]==$value){
+	                // change();
+	                $id="_01";
+	                echo("<script > change('$id')</script>");
+	            }
+	                
+	        }
+	        // echo("<script>alert('username password not matches')</script>");
+	        
+	    }
+	?>
+
+
+Q-how to select all element from a particular row in mysql
+
+answer:$sql = "SELECT * FROM 1_user WHERE id=1;";
+	    $result = $con->query($sql);
+	    if($result)
+	      echo("<script>alert('sucsses')</script>");
+	    else
+	      echo("<script>alert('failed')</script>");
+	    $user = mysqli_fetch_assoc($result);
+	    echo("username="); echo($user['username']);echo nl2br("\n");
+	    echo("email="); echo($user['email']);echo nl2br("\n");
+	    echo("password="); echo($user['password']);
+
+Q-how to redirect to a page in php
+ans:header("Location:index.php?username=$username&password=$password");
+
+
+Q-how to send user data in php header
+ans:header("Location:index.php?username=$username&password=$password");
