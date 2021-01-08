@@ -1,5 +1,6 @@
 Q-how to call js function in php code
 ansqwe:
+<script>
 	 function change(id){
 	        // document.getElementById(id).style.background='green';
 	        alert(id);
@@ -27,6 +28,27 @@ ansqwe:
 	    }
 	?>
 
+Q-how to call php function in js code
+
+ansqwe:we can't do this directally
+		other approach:
+
+		<script>
+				function fns(id){
+								//document.getElementById(id).style.background='green';
+								var xmlhttp = new XMLHttpRequest();
+								xmlhttp.onreadystatechange = function() {
+									if (this.readyState == 4 && this.status == 200) {
+										// alert(this.responseText)
+									}
+								};
+								xmlhttp.open("GET","update_answersheet.php?selected_option="+1,true);//calling php function from js code with sending variable we can access this variable in update_answersheet.php by $var=$_GET["selected_option"];
+								xmlhttp.send();
+				}
+		</script>
+
+
+
 
 Q-how to select all element from a particular row in mysql
 
@@ -47,3 +69,9 @@ ans:header("Location:index.php?username=$username&password=$password");
 
 Q-how to send user data in php header
 ans:header("Location:index.php?username=$username&password=$password");
+
+Q:how to change button color in inline css
+ans:  <button style="color:green">btn</button>
+
+Q:how to un check radio button in jquery
+ans:$( "input[name='name of radio group']" ).prop({checked: false});
